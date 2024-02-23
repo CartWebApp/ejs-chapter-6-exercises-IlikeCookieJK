@@ -8,9 +8,33 @@ It is okay if your iterator behaves strangely when the group is modified during 
 
 // Your code here (and the code from the previous exercise)
 
-
+class Group {
+  constructor (a) {
+    this.a = a;
+  }
+  static from(a) {
+    return new Group(a);
+  }
+   has(a1) {
+   for (let x of this.a) {
+    if (x === a1) {
+      return true;
+    }
+   }
+    return false;
+  }
+  add(a2) {
+    this.a.push(a2);
+    return this.a;
+  }
+  delete(a3) {
+    this.a = this.a.filter((x) => x !== a3)
+  }
+  }
 // Tests:
-for (let value of Group.from(["a", "b", "c"])) {
+// console.log(Group.from(["a", "b", "c"]))
+
+for (let value of Group.from(["a", "b", "c"]).a) {
     console.log(value);
   }
   // → a
