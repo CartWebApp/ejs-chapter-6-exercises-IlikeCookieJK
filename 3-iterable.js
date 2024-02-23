@@ -12,6 +12,7 @@ class Group {
   constructor (a) {
     this.a = a;
   }
+
   static from(a) {
     return new Group(a);
   }
@@ -24,17 +25,33 @@ class Group {
     return false;
   }
   add(a2) {
+    for (let x of this.a) {
+      if(x === a2){
+        console.log(x)
+        return this.a;
+      }
+    }
     this.a.push(a2);
     return this.a;
   }
   delete(a3) {
     this.a = this.a.filter((x) => x !== a3)
   }
+[Symbol.iterator](){
+    let a = this.a;
+    next(x){
+      console.log(x)
+    }
   }
-// Tests:
-// console.log(Group.from(["a", "b", "c"]))
+  }
+  
 
-for (let value of Group.from(["a", "b", "c"]).a) {
+
+
+// Tests:
+console.log(Group.from(["a", "b", "c"]))
+
+for (let value of Group.from(["a", "b", "c"])) {
     console.log(value);
   }
   // → a

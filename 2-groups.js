@@ -25,11 +25,15 @@ class Group {
     return false;
   }
   add(a2) {
+    for (let x of this.a) {
+      if(x === a2){
+        console.log(x)
+        return this.a;
+      }
+    }
     this.a.push(a2);
     return this.a;
   }
-
-
   delete(a3) {
     this.a = this.a.filter((x) => x !== a3)
   }
@@ -47,6 +51,7 @@ console.log(group.has(10));
 console.log(group.has(30));
 // // → false
 group.add(10);
+
 group.delete(10);
 console.log(group.has(10));
 // → false
