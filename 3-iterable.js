@@ -39,17 +39,26 @@ class Group {
   }
 [Symbol.iterator](){
     let a = this.a;
-    next(x){
-      console.log(x)
+    let i = 0;
+  return {
+    next() {
+      if (i == a.length) {
+        console.log(i)
+        return {done: true}
+      }
+      else {
+        i++;
+        return {value: a[i-1], done: false}
+      }
     }
+  }
   }
   }
   
 
 
 
-// Tests:
-console.log(Group.from(["a", "b", "c"]))
+// Tests
 
 for (let value of Group.from(["a", "b", "c"])) {
     console.log(value);
